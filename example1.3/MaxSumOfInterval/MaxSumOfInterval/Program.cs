@@ -14,25 +14,56 @@ namespace MaxSumOfInterval
         /// </summary>
         /// <param name="val"></param>
         /// <returns></returns>
-        /*
+        //public int[] FindMaxSumOfInterval(double[] val)
+        //{
+        //    int leftIntervalLocation = -1, rightIntervalLocation = -1;
+        //    double tempSumOfNumberValue, maxSumOfNumberValue = 0;
+        //    int n = 0;
+
+        //    for (int i = 0; i < val.Length; i++)
+        //    {
+        //        for (int j = 0; j < val.Length; j++)
+        //        {
+        //            tempSumOfNumberValue = 0;
+
+        //            for (int k = i; k < j + 1; k++)
+        //            {
+        //                n++;
+        //                tempSumOfNumberValue += val[k];
+        //            }
+
+        //            if (tempSumOfNumberValue > maxSumOfNumberValue)
+        //            {
+        //                maxSumOfNumberValue = tempSumOfNumberValue;
+
+        //                leftIntervalLocation = i;
+        //                rightIntervalLocation = j;
+        //            }
+        //        }
+        //    }
+
+        //    return new int[] { leftIntervalLocation, rightIntervalLocation, n };
+        //}
+
+        /// <summary>
+        /// 复杂度 O(K²)
+        /// </summary>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public int[] FindMaxSumOfInterval(double[] val)
         {
             int leftIntervalLocation = -1, rightIntervalLocation = -1;
             double tempSumOfNumberValue, maxSumOfNumberValue = 0;
-            int n = 0, f = 0;
+            int n = 0;
 
             for (int i = 0; i < val.Length; i++)
             {
+                tempSumOfNumberValue = 0;
+
                 for (int j = i; j < val.Length; j++)
                 {
-                    f++;
-                    tempSumOfNumberValue = 0;
-
-                    for (int k = i; k < j + 1; k++)
-                    {
-                        n++;
-                        tempSumOfNumberValue += val[k];
-                    }
+                    n++;
+                    tempSumOfNumberValue += val[j];
 
                     if (tempSumOfNumberValue > maxSumOfNumberValue)
                     {
@@ -44,19 +75,7 @@ namespace MaxSumOfInterval
                 }
             }
 
-
-            return new int[] { leftIntervalLocation, rightIntervalLocation, n, f };
-        }
-        */
-
-        /// <summary>
-        /// 复杂度 O(K²)
-        /// </summary>
-        /// <param name="val"></param>
-        /// <returns></returns>
-        public int[] FindMaxSumOfInterval(double[] val)
-        {
-
+            return new int[] { leftIntervalLocation, rightIntervalLocation, n };
         }
     }
 
